@@ -17,7 +17,7 @@ This is a web application for hosting user stories that I made by following the 
 - Set up a MongoDB on the cloud
 - Routing with ExpressJS
 - Using HandleBars for creating HTML templates
-- Authenticating and Authorizing by intercepting HTTP requests with Passport
+- Authenticating and Authorizing with OAuth 2.0 and Passport
 - Managing data in the DB
 
 ## What could be improved
