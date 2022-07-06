@@ -33,7 +33,7 @@ This is a simple REST API for managing pokemon and trainers
 
 The REST API to the app is described below.
     
-## Get all Pokemon
+## Get all pokemon
 
 ### Request
 
@@ -172,6 +172,133 @@ The REST API to the app is described below.
         "_id": "62c5cba1a1c330dce5c9a647",
         "name": "Pikachu",
         "skill": "Electric Bolt"
+      },
+      "message": "Deleted"
+    }
+
+## Create a trainer
+
+### Request
+
+`GET /trainer`
+
+    curl --request POST \
+      --url http://localhost:9090/trainer \
+      --header 'Content-Type: application/json' \
+      --data '{
+      "name": "Ash",
+      "pokemon": "62c5d4a2de29e42d6717aa58"
+    }'
+  
+### Response
+
+    HTTP/1.1 201 Created
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 96
+    ETag: W/"60-ewDmROkl6tI5C9JTlkmelXNBqko"
+    Date: Wed, 06 Jul 2022 18:31:28 GMT
+    Connection: keep-alive
+
+    {
+      "trainer": {
+        "name": "Ash",
+        "pokemon": "62c5d4a2de29e42d6717aa58",
+        "_id": "62c5d500de29e42d6717aa5b"
+      }
+    }
+    
+## Get all trainers
+
+### Request
+
+`POST /trainer`
+
+    curl --request GET --url http://localhost:9090/trainer
+  
+### Response
+
+    HTTP/1.1 200 OK
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 99
+    ETag: W/"63-55VUNtuF4F/8BP0SOFf1Fnw9BKs"
+    Date: Wed, 06 Jul 2022 18:36:56 GMT
+    Connection: keep-alive
+
+    {
+      "trainers": [
+        {
+          "_id": "62c5d500de29e42d6717aa5b",
+          "name": "Ash",
+          "pokemon": "62c5d4a2de29e42d6717aa58"
+        }
+      ]
+    }
+    
+## Update a pokemon
+
+### Request
+
+`PATCH /trainer/{id}`
+
+    curl --request PATCH \
+      --url http://localhost:9090/trainer/62c5d500de29e42d6717aa5b \
+      --header 'Content-Type: application/json' \
+      --data '{
+        "name": "Ash",
+        "pokemon": "62c5d4a2de29e42d6717aa58"
+      }'
+  
+### Response
+
+    HTTP/1.1 201 Created
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 96
+    ETag: W/"60-ewDmROkl6tI5C9JTlkmelXNBqko"
+    Date: Wed, 06 Jul 2022 18:40:02 GMT
+    Connection: keep-alive
+
+    {
+      "trainer": {
+        "name": "Ash",
+        "pokemon": "62c5d4a2de29e42d6717aa58",
+        "_id": "62c5d500de29e42d6717aa5b"
+      }
+    }
+    
+## Delete a pokemon
+
+### Request
+
+`Delete /trainer/{id}`
+
+    curl --request DELETE --url http://localhost:9090/trainer/62c5d500de29e42d6717aa5b
+  
+### Response
+
+    HTTP/1.1 201 Created
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, Authorization
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 116
+    ETag: W/"74-GV0jlayaNwk32N3OzR6tqv3OwTI"
+    Date: Wed, 06 Jul 2022 18:41:22 GMT
+    Connection: keep-alive
+
+    {
+      "Trainer": {
+        "_id": "62c5d500de29e42d6717aa5b",
+        "name": "Ash",
+        "pokemon": "62c5d4a2de29e42d6717aa58"
       },
       "message": "Deleted"
     }
