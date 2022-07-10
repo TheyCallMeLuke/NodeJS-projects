@@ -7,7 +7,7 @@ This is a simple REST API for managing pokemon and trainers
 - Create pokemon and trainers
 - Get all pokemon and trainers
 - Get pokemon and trainers by id
-- Dele pokemon and trainers
+- Delete pokemon and trainers
 
 ## Tech stack
 
