@@ -1,4 +1,4 @@
-# StoryBooks
+# meme-bot
 
 meme-bot is a discord bot that sends you a random meme from reddit on command;
 
